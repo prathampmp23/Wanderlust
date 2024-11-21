@@ -1,0 +1,237 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+.container {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: #fafdf9;
+    /* background-color: red; */
+}
+
+.fa-compass {
+    color: #ff385c;
+    font-size: 3rem;
+    margin-right: -40px;
+}
+
+.nav-link {
+    color: #222222 !important;
+    position: relative;
+}
+
+#navbarNavAltMarkup {
+    background-color: #fafdf9;
+}
+
+.navbar-main {
+    margin-top: -0.65rem !important;
+}
+
+/* WanderLust navbar logo */
+#logo {
+    width: min(200px, 90%);
+    height: clamp(3.5rem, 5.8rem, 6.9rem);
+    /* margin-top: -20px; */
+}
+
+.btn-add-listing:hover {
+    background-color: #ebe8e8;
+    border-radius: 25px;
+}
+
+/* Filters */
+#filters {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter {
+    color: black;
+    opacity: 0.7;
+    height: 80px;
+    width: 80px;
+    margin-right: 4px;
+    padding: 10px;
+    text-align: center;
+    /* border: 1px solid rgba(0, 0, 0, 0); */
+}
+
+.filter:hover {
+    /* background-color: #f7f6f6; */
+    opacity: 1;
+    /* border: 1px solid black; */
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.filter p {
+    font-size: 0.8rem;
+}
+
+/* Tax Switch */
+.tax-info {
+    display: none;
+}
+
+.tax-switch {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.btn-search {
+    background-color: #ff385c !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 2rem !important;
+    display: flex !important;
+    align-items: center;
+    padding: 0 1rem 0 1rem;
+}
+
+.btn-search i {
+    margin-right: 0.5rem;
+}
+
+#search-input input {
+    border-radius: 10rem !important;
+    padding: 0 3rem 0 3rem;
+    /* box-shadow: 1px 1px 10px gray; */
+}
+
+
+/* Footer */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+    margin: 0 5px 0 5px;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info {
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1.1rem;
+    cursor: pointer;
+}
+
+/* Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text {
+    font-weight: 400 !important;
+}
+
+.listing-links {
+    text-decoration: none;
+}
+
+/* Overlay Effect */
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.18);
+    font-weight: bold;
+}
+
+/* New Page */
+.btn-add {
+    background-color: #ff385c !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* Edit Page */
+.btn-edit {
+    background-color: #ff385c !important;
+    color: white !important;
+    border: none !important;
+}
+
+/*  Show page Btn */
+.btn {
+    margin-right: 1rem;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+}
+
+/* Show page image */
+.show-img {
+    height: 20rem;
+}
+
+/* .show-img:hover {
+    filter: drop-shadow(1px 1px 3px);
+} */
+
+/* Review */
+#review {
+    background-color: red;
+}
+
+/* Review cards */
+.review-card {
+    margin: 1.8rem;
+}
+
+/* Map */
+#map {
+    height: 400px;
+    /* width: 58vh; */
+}
