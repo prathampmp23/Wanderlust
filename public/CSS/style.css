@@ -13,8 +13,7 @@ body {
 /* Navbar */
 .navbar {
     height: 5rem;
-    background-color: #fafdf9;
-    /* background-color: red; */
+    background-color: #fcfdff;
 }
 
 .fa-compass {
@@ -28,18 +27,30 @@ body {
 }
 
 #navbarNavAltMarkup {
-    background-color: #fafdf9;
+    background-color: #fcfdff;
+    padding: 0 1rem !important;
+    margin: 0 0 !important;
+    line-height: 2.5rem !important;
+}
+
+.container-fluid {
+    padding: 0 0.5rem !important;
 }
 
 .navbar-main {
-    margin-top: -0.65rem !important;
+    margin-top: 1rem !important;
 }
 
-/* WanderLust navbar logo */
-/* #logo {
-    width: min(200px, 90%);
-    height: clamp(3.5rem, 5.8rem, 6.9rem);
-} */
+.search-box {
+    background-color: #fcfdff !important;
+    padding: 0 0 !important;
+    height: 3rem;
+}
+
+.btn-add-listing {
+    text-align: center;
+    border-radius: 25px;
+}
 
 .btn-add-listing:hover {
     background-color: #ebe8e8;
@@ -51,6 +62,7 @@ body {
     margin-top: 1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -62,19 +74,16 @@ body {
     margin-right: 4px;
     padding: 10px;
     text-align: center;
-    /* border: 1px solid rgba(0, 0, 0, 0); */
 }
 
 .filter:hover {
-    /* background-color: #f7f6f6; */
     opacity: 1;
-    /* border: 1px solid black; */
     cursor: pointer;
     border-radius: 10px;
 }
 
 .filter p {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
 }
 
 /* Tax Switch */
@@ -88,8 +97,10 @@ body {
     text-align: center;
     padding: 1rem;
     height: 3.5rem;
+    width: 25vw;
+    margin: auto;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 
@@ -232,4 +243,32 @@ body {
 #map {
     height: 400px;
     /* width: 58vh; */
+}
+
+@media (max-width: 450px) {
+    #filters {
+        /* background-color: red; */
+        height: 3.8rem;
+        overflow: auto;
+        margin-bottom: 1rem;
+    }
+
+    .filter {
+        margin: 0.5rem 1rem;
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .tax-switch {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .tax-switch {
+        width: 100%;
+        justify-content: center;
+    }
 }

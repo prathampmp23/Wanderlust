@@ -37,7 +37,6 @@ app.engine("ejs", ejsMate);
 // Public folder (Serve Static files like CSS,JS)
 app.use(express.static(path.join(__dirname, "/public")));
 
-// **Connection with MongoDB
 // Mongo Atlas Database URL
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -49,6 +48,11 @@ main()
 async function main() {
   await mongoose.connect(dbUrl);
 }
+
+// // **Connection with MongoDB
+// async function main() {
+//   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+// }
 
 // **Session store
 const store = MongoStore.create({
