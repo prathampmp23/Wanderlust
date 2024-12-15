@@ -1,60 +1,94 @@
 <% layout("layouts/boilerplate") %>
 <body>
-  <div id="filters">
-    <div class="filter">
-      <div><i class="fa-solid fa-fire"></i></div>
-      <p>Trending</p>
+  <div class="filters">
+    <div class="wrapper">
+      <div class="icons"><i id="left" class="fa-solid fa-angle-left"></i></div>
+      <ul class="tabs-box">
+        <li class="tab active">
+          <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+          </div>
+        </li>
+        <li class="tab ">
+          <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>Cities</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beach</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-house"></i></div>
+            <p>Cabins</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Mountain</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-image"></i></div>
+            <p>View</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Pool</p>
+          </div>
+        </li>
+
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-cow"></i></div>
+            <p>Farm</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-snowman"></i></div>
+            <p>Arctic</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-golf-ball-tee"></i></div>
+            <p>Golfing</p>
+          </div>
+        </li>
+        <li class="tab">
+          <div class="filter">
+            <div><i class="fa-solid fa-sailboat"></i></div>
+            <p>Boat</p>
+          </div>
+        </li>
+      </ul>
+      <div class="icons rightIcon">
+        <i id="right" class="fa-solid fa-angle-right"></i>
+      </div>
     </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-bed"></i></div>
-      <p>Rooms</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-city"></i></div>
-      <p>Iconic cities</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-umbrella-beach"></i></div>
-      <p>Beach</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-house"></i></div>
-      <p>Cabins</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-brands fa-fort-awesome"></i></div>
-      <p>Castles</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-mountain-city"></i></div>
-      <p>Mountain</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-image"></i></div>
-      <p>Amazing view</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-person-swimming"></i></div>
-      <p>Pool</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-cow"></i></div>
-      <p>Farm</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-snowman"></i></div>
-      <p>Arctic</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-golf-ball-tee"></i></div>
-      <p>Golfing</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-sailboat"></i></div>
-      <p>Boat</p>
-    </div>
-    <!-- switch -->
-  </div>
+    
     <div class="tax-switch">
       <div class="form-check-reverse form-switch">
         <input
@@ -68,6 +102,8 @@
         >
       </div>
     </div>
+  </div>
+
   <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 mt-3">
     <% for(let listing of allListing) { %>
     <!-- To make image as Link -->
@@ -96,4 +132,3 @@
     <% } %>
   </div>
 </body>
-

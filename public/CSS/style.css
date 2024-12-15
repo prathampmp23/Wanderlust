@@ -3,7 +3,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
 }
 
 .container {
@@ -16,9 +15,15 @@ body {
     background-color: #fcfdff;
 }
 
-.fa-compass {
+.fa-earth-americas {
     color: #ff385c;
     font-size: 3rem;
+}
+
+.navbar-brand {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 200;
+    font-style: normal;
 }
 
 .nav-link {
@@ -42,88 +47,181 @@ body {
 }
 
 .search-box {
-    background-color: #fcfdff !important;
+    background-color: transparent !important;
     padding: 0 0 !important;
     height: 3rem;
 }
 
-.btn-add-listing {
-    text-align: center;
-    border-radius: 25px;
-}
-
-.btn-add-listing:hover {
-    background-color: #ebe8e8;
-    border-radius: 25px;
-}
-
-/* Filters */
-#filters {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.filter {
-    color: black;
-    opacity: 0.7;
-    height: 80px;
-    width: 80px;
-    margin-right: 4px;
-    padding: 10px;
-    text-align: center;
-}
-
-.filter:hover {
-    opacity: 1;
-    cursor: pointer;
-    border-radius: 10px;
-}
-
-.filter p {
-    font-size: 0.6rem;
-}
-
-/* Tax Switch */
-.tax-info {
-    display: none;
-}
-
-.tax-switch {
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    text-align: center;
-    padding: 1rem;
-    height: 3.5rem;
-    width: 25vw;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-
-
-.btn-search {
+#btn-search {
     background-color: #ff385c !important;
     color: white !important;
     border: none !important;
     border-radius: 2rem !important;
-    display: flex !important;
+    padding: 0.4rem 0.8rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0 1rem 0 1rem;
 }
 
-.btn-search i {
+#btn-search i {
     margin-right: 0.5rem;
 }
 
 #search-input input {
-    border-radius: 10rem !important;
-    padding: 0 3rem 0 3rem;
+    border-radius: 2rem !important;
+    padding: 0 3rem;
+    margin-right: 1rem;
+    text-align: center;
     /* box-shadow: 1px 1px 10px gray; */
 }
+
+.btn-add-listing {
+    text-align: center;
+    border-radius: 1rem;
+    margin-right: 10px;
+}
+
+.btn-add-listing:hover {
+    box-shadow: 2px 2px 5px rgb(149, 148, 148) inset;
+    /* font-weight: bold; */
+}
+
+.nav-link:hover {
+    color: #ff385c !important;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: -2rem; */
+}
+
+.wrapper {
+    padding: 1rem 1rem;
+    position: relative;
+    overflow-x: hidden;
+    max-width: 10000px;
+    border-radius: 13px;
+}
+
+.wrapper .icons {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.tabs-box {
+    padding: 0;
+    margin: 0;
+}
+.icons:first-child {
+    left: 0;
+    display: none;
+    background: linear-gradient(90deg, #fff 30%, transparent);
+}
+
+.icons:last-child {
+    right: 0;
+    justify-content: flex-end;
+    background: linear-gradient(-90deg, #fff 30%, transparent);
+}
+
+.icons i {
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 55px;
+    border-radius: 50%;
+    background: #d5d5d5;
+}
+
+.icons i:hover {
+    background-color: #e4e4e4;
+}
+
+icons:first-child i {
+    margin-left: 35px;
+}
+
+icons:last-child i {
+    margin-right: 35px;
+}
+
+.wrapper .tabs-box {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.tabs-box.dradding {
+    scroll-behavior: auto;
+    cursor: grab;
+}
+
+.tabs-box .tab {
+    opacity: 0.9;
+    cursor: pointer;
+    font-size: 1.18rem;
+    white-space: nowrap;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.tabs-box.dradding .tab {
+    user-select: none;
+    pointer-events: none;
+}
+
+.tabs-box .tab.active {
+    color: white;
+    background-color: #5372f0;
+    border-color: transparent;
+    opacity: 1;
+}
+
+.filter i, p {
+    font-size: 15px;
+}
+
+#left:hover {
+    background-color: black;
+    color: white;
+}
+
+#right:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Tax Switch */
+.tax-switch {
+    border-radius: 10px;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    height: 3.5rem;
+    width: 25vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.tax-switch label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
 
 
 /* Footer */
@@ -246,27 +344,89 @@ body {
 }
 
 @media (max-width: 450px) {
-    #filters {
-        /* background-color: red; */
-        height: 3.8rem;
-        overflow: auto;
-        margin-bottom: 1rem;
+
+    #btn-search {
+        padding: 0.5rem;
     }
 
-    .filter {
-        margin: 0.5rem 1rem;
-        height: 3rem;
-        width: 3rem;
+    .btn-add-listing {
+        padding: 0;
+        margin: 20px 40px;
     }
 
     .tax-switch {
         width: 100%;
-        justify-content: center;
+        font-size: 20px;
+    }
+
+    .alert-success {
+        width: 80%;
+    }
+
+    .alert-danger {
+        width: 80%;
+    }
+
+    svg {
+        height: 50px;
+        width: 50px;
+    }
+
+    .alert h4 {
+        font-size: 15px;
+    }
+
+    .filters {
+        margin: 0;
+        padding: 0;
+        display: block;
+        /* margin-top: -10px; */
+    }
+
+    #left {
+        display: none;
+        /* margin-left: -20px; */
+
+    }
+
+    .rightIcon {
+        display: none;
+        position: absolute;
+        left: -500px;
+    }
+
+    .wrapper .tabs-box {
+        overflow-x: scroll;
+        padding: 10px 5px;
+    }
+
+    .filter p {
+        font-size: 0.75rem;
+    }
+
+    .tabs-box .tab {
+        border: none;
+        background-color: white;
+        white-space: nowrap;
+    }
+
+    .tabs-box .tab.active {
+        color: rgb(255, 255, 255);
+        background-color: #0f99fb;
+        border-color: transparent;
+    }
+
+    .rightIcon {
+        background-color: red;
+    }
+
+    .tax-switch {
+        /* margin-top: -10px; */
+        padding: 0;
     }
 }
 
 @media (max-width: 1000px) {
-
     .tax-switch {
         width: 100%;
         justify-content: center;

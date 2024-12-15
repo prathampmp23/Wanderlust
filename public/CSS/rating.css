@@ -203,3 +203,10 @@ screen and (min-resolution: 192dpi) {
     -webkit-transition: background-position .7s;
     transition: background-position .7s;
 }
+
+@media (max-width: 450px) {
+    .review-card {
+        width: 70%;
+        margin: 10px 50px 10px 15px;
+    }
+}

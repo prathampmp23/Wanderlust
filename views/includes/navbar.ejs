@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Navbar icon -->
     <a class="navbar-brand z-2" href="/listings"
-      ><i class="fa-regular fa-compass"></i
+      ><i class="fa-solid fa-earth-americas"></i
     ></a>
     <a class="navbar-brand" href="/listings"><b>WanderLust</b></a>
     <button
@@ -15,19 +15,17 @@
     </button>
     <!-- Navigation links -->
     <div class="collapse navbar-collapse navbar-main" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <!-- <a class="nav-link" href="/listings"><b>Explore</b></a> -->
-      </div>
-      <div class="navbar-nav  ms-auto">
+      <div class="navbar-nav"></div>
+      <div class="navbar-nav ms-auto">
         <nav class="navbar search-box">
           <div>
             <form class="d-flex" id="search-input" role="search">
               <input
-                class="form-control me-2"
+                class="form-control"
                 type="search"
                 placeholder="Search destinations"
               />
-              <button class="btn btn-search" type="submit">
+              <button class="btn" id="btn-search" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>Search
               </button>
             </form>
