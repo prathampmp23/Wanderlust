@@ -72,7 +72,6 @@ body {
     padding: 0 3rem;
     margin-right: 1rem;
     text-align: center;
-    /* box-shadow: 1px 1px 10px gray; */
 }
 
 .btn-add-listing {
@@ -83,7 +82,6 @@ body {
 
 .btn-add-listing:hover {
     box-shadow: 2px 2px 5px rgb(149, 148, 148) inset;
-    /* font-weight: bold; */
 }
 
 .nav-link:hover {
@@ -95,7 +93,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-left: -2rem; */
 }
 
 .wrapper {
@@ -120,7 +117,9 @@ body {
     padding: 0;
     margin: 0;
 }
+
 .icons:first-child {
+    z-index: 1;
     left: 0;
     display: none;
     background: linear-gradient(90deg, #fff 30%, transparent);
@@ -189,7 +188,8 @@ icons:last-child i {
     opacity: 1;
 }
 
-.filter i, p {
+.filter i,
+p {
     font-size: 15px;
 }
 
@@ -323,10 +323,6 @@ icons:last-child i {
     height: 20rem;
 }
 
-/* .show-img:hover {
-    filter: drop-shadow(1px 1px 3px);
-} */
-
 /* Review */
 #review {
     background-color: red;
@@ -340,7 +336,6 @@ icons:last-child i {
 /* Map */
 #map {
     height: 400px;
-    /* width: 58vh; */
 }
 
 @media (max-width: 450px) {
@@ -380,13 +375,10 @@ icons:last-child i {
         margin: 0;
         padding: 0;
         display: block;
-        /* margin-top: -10px; */
     }
 
     #left {
         display: none;
-        /* margin-left: -20px; */
-
     }
 
     .rightIcon {
@@ -421,7 +413,6 @@ icons:last-child i {
     }
 
     .tax-switch {
-        /* margin-top: -10px; */
         padding: 0;
     }
 }

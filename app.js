@@ -80,7 +80,6 @@ const sessionOption = {
   },
 };
 
-
 // Use Session
 app.use(session(sessionOption));
 // use flash
@@ -91,7 +90,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()));
-
 
 // This function determines which data of the user object should be stored in the session
 passport.serializeUser(User.serializeUser());
