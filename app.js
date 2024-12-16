@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
-
+const Listing = require("./models/listing.js");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -108,6 +108,12 @@ app.use((req, res, next) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
+
+// **Root route**
+app.get("/", wrapAsync(async (req, res) => {
+  const allListing = await Listing.find({});
+  res.render("listing/index.ejs", { allListing });
+}));
 
 // **Custom ExpressError for "404" Error "page not found"
 app.all("*", (req, res, next) => {
