@@ -45,31 +45,31 @@ main()
     console.log("Connected to DB");
   })
   .catch((err) => console.log(err));
-async function main() {
-  await mongoose.connect(dbUrl);
-}
-
-// // **Connection with MongoDB
 // async function main() {
-//   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+//   await mongoose.connect(dbUrl);
 // }
 
-// **Session store
-const store = MongoStore.create({
-  mongoUrl: dbUrl,
-  crypto: {
-    secret: process.env.SECRET,
-  },
-  touchAfter: 24 * 3600,
-});
+// **Connection with MongoDB
+async function main() {
+  await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+}
 
-store.on("error", () => {
-  console.log("Mongo Session store error", err);
-});
+// // **Session store
+// const store = MongoStore.create({
+//   mongoUrl: dbUrl,
+//   crypto: {
+//     secret: process.env.SECRET,
+//   },
+//   touchAfter: 24 * 3600,
+// });
+
+// store.on("error", () => {
+//   console.log("Mongo Session store error", err);
+// });
 
 // **Cookie Session Option
 const sessionOption = {
-  store,
+  // store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
