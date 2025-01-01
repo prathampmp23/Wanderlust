@@ -1,104 +1,108 @@
 <% layout("layouts/boilerplate") %>
 <body>
+  <!-- Filters -->
   <div class="filters">
-    <div class="wrapper">
-      <div class="icons"><i id="left" class="fa-solid fa-angle-left"></i></div>
-      <ul class="tabs-box">
-        <li class="tab active">
-          <div class="filter">
-            <div><i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
-          </div>
-        </li>
-        <li class="tab ">
-          <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-city"></i></div>
-            <p>Cities</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-umbrella-beach"></i></div>
-            <p>Beach</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-house"></i></div>
-            <p>Cabins</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i></div>
-            <p>Castles</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-mountain-city"></i></div>
-            <p>Mountain</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-image"></i></div>
-            <p>View</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></div>
-            <p>Pool</p>
-          </div>
-        </li>
-
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-cow"></i></div>
-            <p>Farm</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-snowman"></i></div>
-            <p>Arctic</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-golf-ball-tee"></i></div>
-            <p>Golfing</p>
-          </div>
-        </li>
-        <li class="tab">
-          <div class="filter">
-            <div><i class="fa-solid fa-sailboat"></i></div>
-            <p>Boat</p>
-          </div>
-        </li>
-      </ul>
-      <div class="icons rightIcon">
-        <i id="right" class="fa-solid fa-angle-right"></i>
+    <div class="filter-container">
+      <button class="scroll-button left" id="scroll-left">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+      <div class="filter-wrapper">
+        <ul class="filter-list" id="filter-list">
+          <li class="filter-item active">
+            <div class="filter">
+              <div><i class="fa-solid fa-fire"></i></div>
+              <p>Trending</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-bed"></i></div>
+              <p>Rooms</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-city"></i></div>
+              <p>Cities</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-umbrella-beach"></i></div>
+              <p>Beach</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-house"></i></div>
+              <p>Cabins</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-brands fa-fort-awesome"></i></div>
+              <p>Castles</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-mountain-city"></i></div>
+              <p>Mountain</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-image"></i></div>
+              <p>View</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-person-swimming"></i></div>
+              <p>Pool</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-cow"></i></div>
+              <p>Farm</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-snowman"></i></div>
+              <p>Arctic</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-golf-ball-tee"></i></div>
+              <p>Golfing</p>
+            </div>
+          </li>
+          <li class="filter-item">
+            <div class="filter">
+              <div><i class="fa-solid fa-sailboat"></i></div>
+              <p>Boat</p>
+            </div>
+          </li>
+        </ul>
       </div>
+      <button class="scroll-button right" id="scroll-right">
+        <i id="right" class="fa-solid fa-angle-right"></i>
+      </button>
     </div>
-    
+
     <div class="tax-switch">
       <div class="form-check-reverse form-switch">
         <input
-        class="form-check-input"
-        type="checkbox"
-        role="switch"
-        id="flexSwitchCheckDefault"
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
         />
         <label class="form-check-label" for="flexSwitchCheckDefault"
-        >Display total after taxes</label
+          >Display total after taxes</label
         >
       </div>
     </div>
