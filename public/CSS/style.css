@@ -32,7 +32,6 @@ body {
 }
 
 #navbarNavAltMarkup {
-  background-color: #fcfdff;
   padding: 0 1rem !important;
   margin: 0 0 !important;
   line-height: 2.5rem !important;
@@ -105,16 +104,21 @@ body {
   text-align: center;
   padding: 1.8rem 1rem;
   height: 3.5rem;
-  width: 25vw;
+  width: 23vw;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid rgb(193, 193, 193);
 }
 
 .tax-switch label {
   font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.tax-switch input {
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
@@ -169,10 +173,6 @@ body {
   padding: 0 !important;
 }
 
-.card-text {
-  font-weight: 400 !important;
-}
-
 .listing-links {
   text-decoration: none;
 }
@@ -186,6 +186,50 @@ body {
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.18);
   font-weight: bold;
+}
+
+/* ***Animations*** */
+/* Scroll animation */
+@keyframes appear {
+  from {
+    opacity: 0;
+    clip-path: inset(100% 100% 0 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Text reveal animation */
+@keyframes animate {
+  from {
+    opacity: 0;
+    transform: translate(0, 100px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+    filter: blur(0);
+  }
+}
+
+.card{
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 20%;
+}
+
+.card .card-img-top {
+  animation: animate 1s ease-in-out 0.1s 1 forwards;
+}
+
+.card-text {
+  font-weight: 400 !important;
+  animation: animate 1.1s ease-in-out 0.3s 1 forwards;
 }
 
 /* New Page */
@@ -237,19 +281,37 @@ body {
     padding: 0.5rem 1rem;
     font-size: 13px;
   }
+
   #navbarNavAltMarkup #btn-search {
     padding: 0.5rem;
     font-size: 13px;
   }
+
   #navbarNavAltMarkup .nav-link {
     font-size: 15px;
   }
+
   #navbarNavAltMarkup .btn-add-listing {
     font-size: 13px;
   }
+
+  .tax-switch {
+    width: 30vw !important;
+  }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 770px) {
+  #navbarNavAltMarkup {
+    background-color: #fcfdff;
+  }
+
+  .tax-switch {
+    width: 40% !important;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 525px) {
   #navbarNavAltMarkup input {
     padding: 0.4rem 1rem;
     font-size: 15px;
@@ -268,13 +330,14 @@ body {
 
   #navbarNavAltMarkup .nav-link {
     line-height: 1.7rem;
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
   }
 
   #navbarNavAltMarkup .btn-add-listing {
     font-size: 17px;
     border: 1px solid black;
+    box-shadow: 2px 2px 5px rgb(149, 148, 148) inset;
   }
 
   #btn-search {
@@ -283,13 +346,13 @@ body {
 
   .btn-add-listing {
     padding: 0;
-    margin: 20px 100px;
-    border: none !important; 
-    box-shadow: 2px 2px 5px rgb(78, 77, 77);
+    margin: 20px 70px;
+    border: none !important;
+    box-shadow: 2px 2px 5px rgb(149, 148, 148) inset;
   }
 
   .tax-switch {
-    width: 100%;
+    width: 90% !important;
     font-size: 20px;
   }
 
@@ -325,12 +388,6 @@ body {
   }
 }
 
-@media (max-width: 680px) {
-  .tax-switch {
-    width: 30%;
-    justify-content: center;
-  }
-}
 
 .add {
   color: white;
@@ -338,4 +395,3 @@ body {
   border: none;
   border-radius: 1rem;
 }
-

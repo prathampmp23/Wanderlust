@@ -5,6 +5,7 @@
     position: relative;
     padding: 10px;
     width: 61vw;
+    margin-right: 10px;
 }
 
 .filter-wrapper {
@@ -70,7 +71,6 @@
     border: none;
 }
 
-
 .filter-wrapper {
     overflow-x: scroll;
     /* Ensures content is scrollable */
@@ -87,30 +87,26 @@
     /* Hides scrollbar in Chrome, Safari, and Edge */
 }
 
-@media (max-width: 768px) {
-    .filter-item {
-        padding: 8px 12px;
-        margin-right: 3px;
-    }
-
-    .scroll-button {
-        width: 25px;
-        height: 25px;
-    }
-}
-
 @media (max-width: 1000px) {
     .filter-container {
         width: 100%;
     }
+
     .tax-switch {
         width: 100%;
     }
 }
 
+@media (max-width: 768px) {
+    .filter-item {
+        padding: 8px 12px;
+        margin-right: 3px;
+    }
+}
+
 @media (max-width: 450px) {
     .scroll-button {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
     }
 }
