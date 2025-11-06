@@ -2,12 +2,33 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./review.js");
 
+const CATEGORIES = [
+  "Trending",
+  "Rooms",
+  "Cities",
+  "Beach",
+  "Cabins",
+  "Castles",
+  "Mountain",
+  "View",
+  "Pool",
+  "Farm",
+  "Arctic",
+  "Golfing",
+  "Boat"
+];
+
 const listingSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
   description: String,
+  category: {
+    type: String,
+    enum: CATEGORIES, // only these values are allowed
+    // required: true,
+  },
   image: {
     url: String,
     filename: String,
@@ -50,5 +71,5 @@ listingSchema.post("findOneAndDelete", async (listing) => {
   }
 });
 
-const listing = mongoose.model("listing", listingSchema);
-module.exports = listing;
+const Listing = mongoose.model("listing", listingSchema);
+module.exports = { Listing, CATEGORIES };

@@ -1,4 +1,4 @@
-const Listing = require("./models/listing.js");
+const { Listing } = require("./models/listing.js");
 const Review = require("./models/review.js");
 const ExpressError = require("./Utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
@@ -49,8 +49,8 @@ module.exports.saveRedirectUrl = (req, res, next) => {
 module.exports.isListingOwner = async (req, res, next) => {
   let { id } = req.params;
   let listing = await Listing.findById(id);
-  if (!listing.owner.equals(res.locals.currentUser._id)) {
-    req.flash("error", "You don't have permission");
+  if (!listing.owner._id.equals(req.user._id)) {
+    req.flash("error", "You are not the owner of this listing");
     return res.redirect(`/listings/${id}`);
   }
   next();

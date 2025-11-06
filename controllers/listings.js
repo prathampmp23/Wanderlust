@@ -1,36 +1,62 @@
-const Listing = require("../models/listing.js");
+const { Listing, CATEGORIES } = require("../models/listing.js");
 // Require geocoding services
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 let mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
-module.exports.index = async (req, res) => {
-  const allListing = await Listing.find({});
-  res.render("listing/index.ejs", { allListing });
+module.exports.index = async (req, res, next) => {
+  try {
+    const { category } = req.query;
+
+    // Whitelist check so only known categories are accepted
+    const isValidCategory = category && CATEGORIES?.includes(category);
+
+    const filter = {};
+    if (isValidCategory && category !== "Trending") {
+      filter.category = category;
+    }
+
+    // Base query with optional sorting for "Trending"
+    let query = Listing.find(filter);
+
+    // Optional "Trending" behaviour: newest first (requires { timestamps: true } in schema)
+    if (category === "Trending") {
+      query = query.sort({ createdAt: -1 });
+    }
+
+    const listings = await query.lean();
+
+    res.render("listing/index.ejs", {
+      allListing: listings, // keep your old var name to avoid changing the EJS loop
+      categories: CATEGORIES, // for dropdown/icons
+      activeCategory: isValidCategory ? category : null,
+    });
+  } catch (err) {
+    next(err);
+  }
 };
 
 module.exports.renderNewForm = (req, res) => {
-  res.render("listing/new.ejs");
+  res.render("listing/new.ejs", { categories: CATEGORIES });
 };
 
 module.exports.createListing = async (req, res, next) => {
   let response = await geocodingClient
-    .forwardGeocode({
-      query: req.body.listing.location,
-      limit: 1,
-    })
+    .forwardGeocode({ query: req.body.listing.location, limit: 1 })
     .send();
 
-  let url = req.file.path;
-  let filename = req.file.filename;
-  // **To create a "instance" of JS object**
-  const newListing = new Listing(req.body.listing);
+  const newListing = new Listing(req.body.listing); // contains listing.category
   newListing.owner = req.user._id;
-  newListing.image = { url, filename };
-  newListing.geometry = response.body.features[0].geometry;
 
-  let savedListing = await newListing.save();
-  console.log(savedListing);
+  if (req.file) {
+    newListing.image = { url: req.file.path, filename: req.file.filename };
+  }
+
+  // Guard in case geocode returns nothing
+  const feature = response?.body?.features?.[0];
+  if (feature?.geometry) newListing.geometry = feature.geometry;
+
+  await newListing.save();
   req.flash("success", "New listing created!");
   res.redirect("/listings");
 };
@@ -57,7 +83,11 @@ module.exports.renderEditForm = async (req, res) => {
   // this reduce the quality of preview image
   let originalImageUrl = listing.image.url;
   originalImageUrl = originalImageUrl.replace("/upload", "/upload/h_300,w_250");
-  res.render("listing/edit.ejs", { listing, originalImageUrl });
+  res.render("listing/edit.ejs", {
+    listing,
+    originalImageUrl,
+    categories: CATEGORIES,
+  });
 };
 
 module.exports.updateListing = async (req, res) => {

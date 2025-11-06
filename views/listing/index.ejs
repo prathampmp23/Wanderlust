@@ -1,7 +1,7 @@
 <% layout("layouts/boilerplate") %>
 <body>
   <!-- Filters -->
-  <div class="filters">
+  <!-- <div class="filters">
     <div class="filter-container">
       <button class="scroll-button left" id="scroll-left">
         <i class="fa-solid fa-angle-left"></i>
@@ -106,13 +106,82 @@
         >
       </div>
     </div>
+  </div> -->
+
+  <!-- Filters -->
+  <div class="filters">
+    <div class="filter-container">
+      <button class="scroll-button left" id="scroll-left">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+
+      <div class="filter-wrapper">
+        <ul class="filter-list" id="filter-list">
+          <!-- All -->
+          <!-- Category items -->
+          <% 
+            const iconList = [
+              { name: "Trending", icon: "fa-solid fa-fire" },
+              { name: "Rooms", icon: "fa-solid fa-bed" },
+              { name: "Cities", icon: "fa-solid fa-city" },
+              { name: "Beach", icon: "fa-solid fa-umbrella-beach" },
+              { name: "Cabins", icon: "fa-solid fa-house" },
+              { name: "Castles", icon: "fa-brands fa-fort-awesome" },
+              { name: "Mountain", icon: "fa-solid fa-mountain-city" },
+              { name: "View", icon: "fa-solid fa-image" },
+              { name: "Pool", icon: "fa-solid fa-person-swimming" },
+              { name: "Farm", icon: "fa-solid fa-cow" },
+              { name: "Arctic", icon: "fa-solid fa-snowman" },
+              { name: "Golfing", icon: "fa-solid fa-golf-ball-tee" },
+              { name: "Boat", icon: "fa-solid fa-sailboat" }
+            ]; 
+
+            // If controller passed categories, render only those; else render all
+            const listToRender = (Array.isArray(categories) && categories.length) 
+              ? iconList.filter(it => categories.includes(it.name)) 
+              : iconList;
+            %>
+
+            <% listToRender.forEach(function(it) { %>
+              <li class="filter-item <%= activeCategory === it.name ? 'active' : '' %>">
+                <a href="/listings?category=<%= encodeURIComponent(it.name) %>" 
+                  class="filter text-decoration-none">
+                  <div><i class="<%= it.icon %>"></i></div>
+                  <p><%= it.name %></p>
+                </a>
+              </li>
+            <% }) %>
+        </ul>
+      </div>
+
+      <button class="scroll-button right" id="scroll-right">
+        <i id="right" class="fa-solid fa-angle-right"></i>
+      </button>
+    </div>
+
+    <div class="tax-switch">
+      <div class="form-check-reverse form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+        />
+        <label class="form-check-label" for="flexSwitchCheckDefault"
+          >Display total after taxes</label
+        >
+      </div>
+    </div>
   </div>
 
-  <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 mt-3">
-    <% for(let listing of allListing) { %>
-    <!-- To make image as Link -->
+  <!-- <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 mt-3"> -->
+  <!-- _cards.ejs -->
+  <div
+    id="listing-grid"
+    class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 mt-3"
+  >
+    <% for (let listing of allListing) { %>
     <a href="/listings/<%= listing._id %>" class="listing-links">
-      <!-- Card Component -->
       <div class="card col listing-card">
         <img
           src="<%= listing.image.url %>"
@@ -120,13 +189,12 @@
           alt="Listing_image"
           style="height: 15rem"
         />
-        <!-- image overlay effect (Div) -->
-        <div class="card-img-overlay"><%= listing.title %></div>
-        <!-- Card Body -->
+        <div class="card-img-overlay">
+          <div class="text"><%= listing.title %></div>
+        </div>
         <div class="card-body">
           <p class="card-text">
-            <!-- Card Text (title and price) -->
-            <b> <%= listing.title %> </b> <br />
+            <b><%= listing.title %></b><br />
             &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
             <i class="tax-info">&nbsp;+ 18% GST</i>
           </p>
@@ -134,5 +202,6 @@
       </div>
     </a>
     <% } %>
+    <!-- </div> -->
   </div>
 </body>
