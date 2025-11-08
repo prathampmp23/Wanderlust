@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const Listing = require("./models/listing.js");
 const ExpressError = require("./Utils/ExpressError.js");
 const wrapAsync = require("./Utils/wrapAsync.js");
 const session = require("express-session");
@@ -16,7 +15,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-const { CATEGORIES } = require("./models/listing");
+const { Listing, CATEGORIES } = require("./models/listing.js");
 
 // Require Express Router
 const listingRouter = require("./Router/listing.js");
@@ -111,7 +110,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.locals.CATEGORIES = CATEGORIES; 
+app.locals.categories = CATEGORIES;
 
 // Listing, Review & User Router
 app.use("/listings", listingRouter);
@@ -119,10 +118,21 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
 // **Root route**
-app.get("/", wrapAsync(async (req, res) => {
-  const allListing = await Listing.find({});
-  res.render("listing/index.ejs", { allListing });
-}));
+app.get(
+  "/",
+  wrapAsync(async (req, res) => {
+    const activeCategory = req.query.category || "All"; 
+    const allListing = await Listing.find(
+      activeCategory === "All" ? {} : { category: activeCategory }
+    );
+
+    res.render("listing/index.ejs", {
+      allListing,
+      CATEGORIES,
+      activeCategory,
+    });
+  })
+);
 
 // **Custom ExpressError for "404" Error "page not found"
 app.all("*", (req, res, next) => {
