@@ -26,7 +26,7 @@ const listingSchema = new Schema({
   description: String,
   category: {
     type: String,
-    enum: CATEGORIES, // only these values are allowed
+    enum: CATEGORIES,
     // required: true,
   },
   image: {
@@ -56,10 +56,6 @@ const listingSchema = new Schema({
       type: [Number],
       required: true,
     },
-    // category: {
-    //   type: String,
-    //   enum: ["mountains", "desert", "artic", "farms"],
-    // },
   },
 });
 

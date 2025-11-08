@@ -38,7 +38,6 @@
 }
 
 .filter-item.active {
-    color: rgb(255, 255, 255);
     background-color: #0f99fb;
     border-color: transparent;
 }

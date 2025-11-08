@@ -123,15 +123,15 @@
             const iconList = [
               { name: "Trending", icon: "fa-solid fa-fire" },
               { name: "Rooms", icon: "fa-solid fa-bed" },
-              { name: "Cities", icon: "fa-solid fa-city" },
-              { name: "Beach", icon: "fa-solid fa-umbrella-beach" },
-              { name: "Cabins", icon: "fa-solid fa-house" },
-              { name: "Castles", icon: "fa-brands fa-fort-awesome" },
               { name: "Mountain", icon: "fa-solid fa-mountain-city" },
               { name: "View", icon: "fa-solid fa-image" },
-              { name: "Pool", icon: "fa-solid fa-person-swimming" },
+              { name: "Cities", icon: "fa-solid fa-city" },
               { name: "Farm", icon: "fa-solid fa-cow" },
+              { name: "Beach", icon: "fa-solid fa-umbrella-beach" },
               { name: "Arctic", icon: "fa-solid fa-snowman" },
+              { name: "Cabins", icon: "fa-solid fa-house" },
+              { name: "Castles", icon: "fa-brands fa-fort-awesome" },
+              { name: "Pool", icon: "fa-solid fa-person-swimming" },
               { name: "Golfing", icon: "fa-solid fa-golf-ball-tee" },
               { name: "Boat", icon: "fa-solid fa-sailboat" }
             ]; 
@@ -174,7 +174,6 @@
     </div>
   </div>
 
-  <!-- <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 mt-3"> -->
   <!-- _cards.ejs -->
   <div
     id="listing-grid"
@@ -190,11 +189,12 @@
           style="height: 15rem"
         />
         <div class="card-img-overlay">
-          <div class="text"><%= listing.title %></div>
+          <div class="text">Explore this stay</div>
         </div>
         <div class="card-body">
           <p class="card-text">
             <b><%= listing.title %></b><br />
+            <%= listing.location %> , <%= listing.country %><br/>
             &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
             <i class="tax-info">&nbsp;+ 18% GST</i>
           </p>

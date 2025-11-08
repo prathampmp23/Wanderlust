@@ -25,8 +25,9 @@
           <p class="card-text">
             &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
           </p>
-          <p class="card-text"><%= listing.location %></p>
-          <p class="card-text"><%= listing.country %></p>
+          <p class="card-text"><b>Category : </b> <%= listing.category %></p>
+          <p class="card-text"><b>Location : </b> <%= listing.location %></p>
+          <p class="card-text"><b>Country : </b> <%= listing.country %></p>
         </div>
       </div>
       <!-- **Access given only to listing owner** -->
