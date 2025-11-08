@@ -52,6 +52,14 @@ main()
 async function main() {
   await mongoose.connect(dbUrl);
 }
+async function main() {
+  await mongoose.connect(dbUrl);
+}
+
+// **Connection with MongoDB
+// async function main() {
+//   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+// }
 
 // // **Session store
 // const store = MongoStore.create({
